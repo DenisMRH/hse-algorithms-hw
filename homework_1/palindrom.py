@@ -1,21 +1,22 @@
-def is_palindrom(x: int) -> bool:
-    if x < 0:
+def is_palindrom(x: str) -> bool:
+    if x.strip().isdigit():
+        x = int(x.strip())
+        original = x
+        reversed_num = 0
+        if x < 0:
+            return False
+
+        while x > 0:
+            digit = x % 10
+            reversed_num = reversed_num * 10 + digit
+            x //= 10
+        print("True" if original == reversed_num else "False")
+        return(True if original == reversed_num else False)
+    else:
+        print("Это не число, приятель")
         return False
-
-    original = x
-    reversed_num = 0
-
-    while x > 0:
-        digit = x % 10
-        reversed_num = reversed_num * 10 + digit
-        x //= 10
-
-    return original == reversed_num
 
 
 if __name__ == "__main__":
-    x = input('Введи число: ').strip()
-    if x.isdigit():
-        print("True" if is_palindrom(int(x)) else "False")
-    else:
-        print("Это не число, приятель")
+    x = input('Введи число: ')
+    is_palindrom(x)
