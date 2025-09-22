@@ -4,6 +4,7 @@ def is_palindrom(x: str) -> bool:
         original = x
         reversed_num = 0
         if x < 0:
+            print("Число отрицательное")
             return False
 
         while x > 0:
@@ -13,10 +14,10 @@ def is_palindrom(x: str) -> bool:
         print("True" if original == reversed_num else "False")
         return(True if original == reversed_num else False)
     else:
-        print("Это не число, приятель")
+        print("Это не целое положительное число, приятель")
         return False
 
 
 if __name__ == "__main__":
-    x = input('Введи число: ')
+    x = input('Введи целое положительное число: ')
     is_palindrom(x)
