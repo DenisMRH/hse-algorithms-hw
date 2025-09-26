@@ -1,4 +1,4 @@
-def is_palindrom(x: str) -> bool:
+def is_palindrome(x: str) -> bool:
     if x.strip().isdigit():
         x = int(x.strip())
         original = x
@@ -20,4 +20,4 @@ def is_palindrom(x: str) -> bool:
 
 if __name__ == "__main__":
     x = input('Введи целое положительное число: ')
-    is_palindrom(x)
+    is_palindrome(x)

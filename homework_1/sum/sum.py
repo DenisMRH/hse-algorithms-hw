@@ -7,7 +7,7 @@ def max_even_sum(line: str) -> int:
     for p in parts:
         try:
             v = int(p)
-        except ValueError as e:
+        except ValueError:
             raise ValueError(f"Ожидались целые числа, встретилось: {p}")
         if v < 0:
             raise ValueError(f"Ожидались неотрицательные числа, встретилось: {v}")

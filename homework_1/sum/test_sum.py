@@ -16,6 +16,9 @@ def test_space():
     assert max_even_sum("1\xa03 5") == 8 
     assert max_even_sum("1\n3 5") == 8 
 
+def test_valueerror():
+    with pytest.raises(ValueError):
+        max_even_sum("1 text 5")
 
 def test_all_odd():
     assert max_even_sum("1 3 5") == 8 
