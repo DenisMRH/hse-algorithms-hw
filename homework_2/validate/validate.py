@@ -1,5 +1,5 @@
 def validate_stack_sequences(pushed, popped):
-    if len(pushed) != len(popped):
+    if len(pushed) != len(popped) or not pushed:
         return False
 
     stack = []
