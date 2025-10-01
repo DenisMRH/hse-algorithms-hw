@@ -1,28 +1,23 @@
-def isability (pushed: str,poped : str) -> bool:
-    pushed = (((pushed).strip()).split())
-    pushed.reverse()
-    poped = ((poped).strip()).split()
+def validate_stack_sequences(pushed, popped):
+    if len(pushed) != len(popped):
+        return False
 
-    # if len(pushed) != len(poped):
-    #     return False
+    stack = []
+    j = 0
 
-    temp = [None]
-    for i in range (0, len(poped)) :
-        if temp[len(temp)-1] != poped[i]:
-            while temp[len(temp)-1] != poped[i]  and len(pushed)>0:
-                temp.append(pushed.pop())
-                if temp[len(temp)-1] == poped[i]:
-                    print(temp[len(temp)-1])
-                    temp.pop()
-                    break
-        else:
-            print(temp[len(temp)-1])
-            temp.pop()
+    for x in pushed:
+        stack.append(x)
+        while stack and j < len(popped) and stack[-1] == popped[j]:
+            stack.pop()
+            j += 1
 
-    print(pushed,poped, temp)
-    return True if temp == [None] else  False
+    return not stack
+    
+def parse_line(s):
+    return [int(x) for x in s.strip().split()]
 
 
-pushed = input("pushed: ")
-poped = input("poped: ")
-print(isability(pushed, poped))
+if __name__ == "__main__":
+    pushed = parse_line(input("pushed: "))
+    popped = parse_line(input("popped: "))
+    print(validate_stack_sequences(pushed, popped))
