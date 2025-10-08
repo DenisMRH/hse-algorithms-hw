@@ -1,4 +1,7 @@
-def two_sum(arrstr, k):
+def two_sum(arrstr : list, k: str):
+    if len(arrstr)<2 or k == "":
+        raise ValueError("В массиве менее двух элементов или k - пустое ")
+
     arr = []
     
     for x in arrstr:
